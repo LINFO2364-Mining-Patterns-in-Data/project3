@@ -1,0 +1,34 @@
+network unknown {
+}
+variable asia {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable bronc {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable dysp {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable either {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable lung {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable smoke {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable tub {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable xray {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}

@@ -1,0 +1,894 @@
+network unknown {
+}
+variable APPLY32 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable APPLY61 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable APPLY77 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable AXIS33 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable BUGGY54 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable CHOOSE19 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable CHOOSE35 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable CHOOSE47 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable CHOOSE62 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable COMPO16 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable CONSTANT5 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable DEFINE23 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable DISPLACEM0 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable EQUAL71 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable EQUATION28 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable FIND49 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable FIND58 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable FORCE60 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GIVEN21 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GIVEN_1 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL65 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL66 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL68 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL72 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_103 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_104 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_107 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_108 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_109 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_110 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_111 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_113 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_114 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_121 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_126 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_127 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_129 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_130 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_142 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_143 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_146 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_147 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_149 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_150 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_153 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_2 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_48 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_49 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_50 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_53 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_56 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_57 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_61 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_62 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_63 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_66 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_69 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_72 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_79 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_80 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_81 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_83 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_84 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_87 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_98 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GOAL_99 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GRAV2 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable GRAV78 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable HORIZ53 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY10 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY22 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY39 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY41 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY43 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY55 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY59 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable IDENTIFY9 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable INCLINE51 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable KINE29 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable KINEMATI17 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable KNOWN6 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable KNOWN8 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable MAXIMIZE34 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NEED1 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NEED36 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NEED67 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NEWTONS45 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NEWTONS74 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NORMAL50 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NORMAL52 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable NULL48 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp1 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp10 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp11 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp12 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp13 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp2 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp3 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp4 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp5 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp6 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp7 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp8 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RApp9 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RESOLVE37 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RESOLVE38 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RESOLVE40 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable RESOLVE42 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SLIDING4 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_10 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_100 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_102 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_106 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_11 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_112 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_115 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_116 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_117 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_118 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_119 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_12 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_120 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_122 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_123 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_124 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_125 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_128 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_13 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_131 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_132 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_133 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_134 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_135 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_136 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_137 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_14 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_15 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_151 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_152 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_154 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_155 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_156 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_16 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_17 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_18 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_19 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_20 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_21 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_24 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_25 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_26 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_27 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_28 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_29 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_3 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_31 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_33 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_34 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_37 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_38 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_4 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_40 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_41 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_42 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_43 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_44 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_46 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_47 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_5 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_51 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_52 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_54 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_55 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_59 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_6 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_60 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_64 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_65 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_67 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_68 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_7 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_70 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_71 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_73 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_74 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_75 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_8 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_86 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_88 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_9 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_91 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_92 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_93 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_94 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_95 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SNode_97 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable STRAT_90 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SUM75 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SYSTEM18 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable SYSTEM46 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY11 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY12 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY13 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY14 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY15 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY24 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY25 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY26 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable TRY76 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VALUE3 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VAR20 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VECTOR27 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VECTOR44 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VECTOR69 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VECTOR70 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VECTOR73 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable VELOCITY7 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable WEIGHT56 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable WEIGHT57 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable WRITE30 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable WRITE31 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable WRITE63 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable WRITE64 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}

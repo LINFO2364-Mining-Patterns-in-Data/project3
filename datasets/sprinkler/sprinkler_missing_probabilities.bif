@@ -1,0 +1,14 @@
+network unknown {
+}
+variable Cloudy {
+    type discrete [ 2 ] { 0, 1 };
+}
+variable Rain {
+    type discrete [ 2 ] { 0, 1 };
+}
+variable Sprinkler {
+    type discrete [ 2 ] { 0, 1 };
+}
+variable Wet_Grass {
+    type discrete [ 2 ] { 0, 1 };
+}

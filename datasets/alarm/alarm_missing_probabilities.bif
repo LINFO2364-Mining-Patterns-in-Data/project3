@@ -1,0 +1,150 @@
+network unknown {
+}
+variable ANAPHYLAXIS {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable ARTCO2 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable BP {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CATECHOL {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable CO {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CVP {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable DISCONNECT {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable ERRCAUTER {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable ERRLOWOUTPUT {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable EXPCO2 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable FIO2 {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable HISTORY {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable HR {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable HRBP {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable HREKG {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable HRSAT {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable HYPOVOLEMIA {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable INSUFFANESTH {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable INTUBATION {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable KINKEDTUBE {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable LVEDVOLUME {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable LVFAILURE {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable MINVOL {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable MINVOLSET {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable PAP {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable PCWP {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable PRESS {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable PULMEMBOLUS {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable PVSAT {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable SAO2 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable SHUNT {
+    type discrete [ 2 ] { 0, 1 };
+    property weight = None ;
+}
+variable STROKEVOLUME {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable TPR {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable VENTALV {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable VENTLUNG {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable VENTMACH {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable VENTTUBE {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}

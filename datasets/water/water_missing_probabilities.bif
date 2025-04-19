@@ -1,0 +1,130 @@
+network unknown {
+}
+variable CBODD_12_00 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CBODD_12_15 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CBODD_12_30 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CBODD_12_45 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CBODN_12_00 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CBODN_12_15 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CBODN_12_30 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CBODN_12_45 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CKND_12_00 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKND_12_15 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKND_12_30 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKND_12_45 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNI_12_00 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNI_12_15 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNI_12_30 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNI_12_45 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNN_12_00 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNN_12_15 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNN_12_30 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CKNN_12_45 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable CNOD_12_00 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CNOD_12_15 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CNOD_12_30 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CNOD_12_45 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CNON_12_00 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CNON_12_15 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CNON_12_30 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable CNON_12_45 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable C_NI_12_00 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable C_NI_12_15 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable C_NI_12_30 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}
+variable C_NI_12_45 {
+    type discrete [ 4 ] { 0, 1, 2, 3 };
+    property weight = None ;
+}

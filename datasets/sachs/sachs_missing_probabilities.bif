@@ -1,0 +1,46 @@
+network unknown {
+}
+variable Akt {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Erk {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Jnk {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Mek {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable P38 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable PIP2 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable PIP3 {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable PKA {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable PKC {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Plcg {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
+variable Raf {
+    type discrete [ 3 ] { 0, 1, 2 };
+    property weight = None ;
+}
