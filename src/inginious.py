@@ -1,5 +1,8 @@
+import itertools
 import re
 import sys
+from collections import defaultdict
+
 
 class CPT:
     def __init__(self, head, parents):
@@ -92,6 +95,144 @@ class BayesianNetwork:
     def P_Yisy_given_parents(self,Y,y,pa={}):
         x = tuple([ pa[parent.name] for parent in self.variables[Y].cpt.parents ])
         return self.P_Yisy_given_parents_x(Y,y,x)
+    
+    def _get_children(self):
+        children = defaultdict(list)
+        for var in self.variables.values():
+            for parent in var.cpt.parents:
+                children[parent.name].append(var.name)
+        return children
+
+    def _normalize(self, dist):
+        total = sum(dist.values())
+        return {k: v / total for k, v in dist.items() if total > 0}
+
+    def _get_pi_contribution(self, pname, pval, pi_msgs, evidence):
+        if pname in pi_msgs:
+            return pi_msgs[pname][pval]
+        elif pname in evidence:
+            return 1.0 if evidence[pname] == pval else 0.0
+        else:
+            return 1.0 / len(self.variables[pname].values)
+
+    def _send_messages_to_root(self, node, evidence, children, lambda_msgs):
+        if node in lambda_msgs:
+            return lambda_msgs[node]
+
+        var = self.variables[node]
+        lambda_msg = {val: 1.0 for val in var.values}
+
+        for child in children[node]:
+            child_lambda = self._send_messages_to_root(child, evidence, children, lambda_msgs)
+            child_var = self.variables[child]
+            parent_names = [p.name for p in child_var.cpt.parents]
+
+            new_lambda = {}
+            for xi in var.values:
+                msg = 0.0
+                for xj in child_var.values:
+                    def get_vals(pname):
+                        if pname == node:
+                            return [xi]
+                        elif pname in evidence:
+                            return [evidence[pname]]
+                        else:
+                            return self.variables[pname].values
+
+                    all_pa_vals = itertools.product(*[get_vals(pname) for pname in parent_names])
+
+                    for pa in all_pa_vals:
+                        pa_dict = dict(zip(parent_names, pa))
+                        pa_vals = tuple(pa_dict[p.name] for p in child_var.cpt.parents)
+                        prob = child_var.cpt.entries[pa_vals][xj]
+                        msg += prob * child_lambda[xj]
+                new_lambda[xi] = lambda_msg[xi] * msg
+            lambda_msg = new_lambda
+
+        if node in evidence:
+            observed = evidence[node]
+            lambda_msg = {val: (1.0 if val == observed else 0.0) for val in var.values}
+
+        lambda_msgs[node] = lambda_msg
+        return lambda_msg
+
+    def _send_messages_from_root(self, node, pi_msg, evidence, children, lambda_msgs, beliefs, pi_msgs):
+        var = self.variables[node]
+        lambda_msg = lambda_msgs[node]
+        belief = {val: pi_msg[val] * lambda_msg[val] for val in var.values}
+        beliefs[node] = self._normalize(belief)
+        pi_msgs[node] = pi_msg
+
+        for child in children[node]:
+            child_var = self.variables[child]
+            parent_names = [p.name for p in child_var.cpt.parents]
+            child_pi = {xj: 0.0 for xj in child_var.values}
+
+            for xj in child_var.values:
+                total = 0.0
+                def get_vals(pname):
+                    if pname in evidence:
+                        return [evidence[pname]]
+                    else:
+                        return self.variables[pname].values
+
+                all_pa_vals = itertools.product(*[get_vals(pname) for pname in parent_names])
+
+                for pa in all_pa_vals:
+                    pa_dict = dict(zip(parent_names, pa))
+                    pa_vals = tuple(pa_dict[p.name] for p in child_var.cpt.parents)
+                    prob = child_var.cpt.entries[pa_vals][xj]
+
+                    contrib = 1.0
+                    for pname, pval in pa_dict.items():
+                        contrib *= self._get_pi_contribution(pname, pval, pi_msgs, evidence)
+
+                    total += contrib * prob
+
+                child_pi[xj] = total
+
+            self._send_messages_from_root(child, child_pi, evidence, children, lambda_msgs, beliefs, pi_msgs)
+
+    def query_marginal(self, query_var, evidence):
+        children = self._get_children()
+        lambda_msgs = {}
+        beliefs = {}
+        pi_msgs = {}
+
+        root = next(iter(evidence)) if evidence else query_var
+        self._send_messages_to_root(root, evidence, children, lambda_msgs)
+
+        root_var = self.variables[root]
+        if root_var.cpt.parents:
+            root_pi = {val: 1.0 for val in root_var.values}
+        else:
+            root_pi = root_var.cpt.entries[tuple()]
+
+        self._send_messages_from_root(root, root_pi, evidence, children, lambda_msgs, beliefs, pi_msgs)
+
+        return beliefs[query_var]
+    
+    def query_joint(self, var1, var2, evidence):
+        joint_dist = {}
+        for val1 in self.variables[var1].values:
+            joint_dist[val1] = {}
+            for val2 in self.variables[var2].values:
+                extended_evidence = dict(evidence)
+                extended_evidence[var2] = val2
+                marginal_var1 = self.query_marginal(var1, {**extended_evidence, var2: val2})
+                marginal_var2 = self.query_marginal(var2, evidence)
+                joint_dist[val1][val2] = marginal_var1[val1] * marginal_var2[val2]
+        return self._normalize_nested(joint_dist)
+
+    def _normalize_nested(self, joint_dist):
+        total = sum(v for d in joint_dist.values() for v in d.values())
+        if total == 0:
+            return joint_dist
+        for k1 in joint_dist:
+            for k2 in joint_dist[k1]:
+                joint_dist[k1][k2] /= total
+        return joint_dist
+
     
 
 def pipeline(train_dataset_file, test_dataset_file, missing_value_file, bayesian_network_file):
