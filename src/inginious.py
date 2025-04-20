@@ -198,17 +198,21 @@ class BayesianNetwork:
         lambda_msgs = {}
         beliefs = {}
         pi_msgs = {}
-
         root = next(iter(evidence)) if evidence else query_var
         self._send_messages_to_root(root, evidence, children, lambda_msgs)
-
         root_var = self.variables[root]
         if root_var.cpt.parents:
             root_pi = {val: 1.0 for val in root_var.values}
         else:
             root_pi = root_var.cpt.entries[tuple()]
-
         self._send_messages_from_root(root, root_pi, evidence, children, lambda_msgs, beliefs, pi_msgs)
+        if query_var not in beliefs:
+            self._send_messages_to_root(query_var, evidence, children, lambda_msgs)
+            if self.variables[query_var].cpt.parents:
+                root_pi = {val: 1.0 for val in self.variables[query_var].values}
+            else:
+                root_pi = self.variables[query_var].cpt.entries[tuple()]
+            self._send_messages_from_root(query_var, root_pi, evidence, children, lambda_msgs, beliefs, pi_msgs)
 
         return beliefs[query_var]
     
@@ -218,10 +222,17 @@ class BayesianNetwork:
             joint_dist[val1] = {}
             for val2 in self.variables[var2].values:
                 extended_evidence = dict(evidence)
+                extended_evidence[var1] = val1
                 extended_evidence[var2] = val2
-                marginal_var1 = self.query_marginal(var1, {**extended_evidence, var2: val2})
-                marginal_var2 = self.query_marginal(var2, evidence)
-                joint_dist[val1][val2] = marginal_var1[val1] * marginal_var2[val2]
+                marg = self.query_marginal(var2, evidence)
+                if var2 not in marg or val2 not in marg:
+                    marg = self.query_marginal(var2, evidence)
+                if val2 not in marg:
+                    continue
+                cond = self.query_marginal(var1, {**evidence, var2: val2})
+                if var1 not in cond or val1 not in cond:
+                    cond = self.query_marginal(var1, {**evidence, var2: val2})
+                joint_dist[val1][val2] = cond[val1] * marg[val2]
         return self._normalize_nested(joint_dist)
 
     def _normalize_nested(self, joint_dist):
