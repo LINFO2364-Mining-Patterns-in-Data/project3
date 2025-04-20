@@ -5,9 +5,9 @@ from collections import defaultdict
 import pandas as pd
 
 
-# =============================== #
-# CONDITIONAL PROBABILITY TABLES  #
-# =============================== #
+# ==================================================================================================================== #
+# --------------------------------------- CONDITIONAL PROBABILITY TABLES (CPT) --------------------------------------- #
+# ==================================================================================================================== #
 class CPT:
     def __init__(self, head, parents):
         self.head = head
@@ -18,33 +18,35 @@ class CPT:
         comma = ", "
         if len(self.parents) == 0:
             return f"probability ( {self.head.name} ) {{" + "\n" \
-                f"  table {comma.join ( map(str,self.entries[tuple()].values () ))};" + "\n" \
-                f"}}" + "\n"
+                                                            f"  table {comma.join(map(str, self.entries[tuple()].values()))};" + "\n" \
+                                                                                                                                 f"}}" + "\n"
         else:
-            return f"probability ( {self.head.name} | {comma.join ( [p.name for p in self.parents ] )} ) {{" + "\n" + \
-                "\n".join ( [  \
-                  f"  ({comma.join(names)}) {comma.join(map(str,values.values ()))};" \
-                    for names,values in self.entries.items () \
-                ] ) + "\n}\n" 
+            return f"probability ( {self.head.name} | {comma.join([p.name for p in self.parents])} ) {{" + "\n" + \
+                "\n".join([ \
+                    f"  ({comma.join(names)}) {comma.join(map(str, values.values()))};" \
+                    for names, values in self.entries.items() \
+                    ]) + "\n}\n"
 
-# =============================== #
-#    VARIABLES REPRESENTATION     #
-# =============================== #       
+
+# ==================================================================================================================== #
+# --------------------------------------------- VARIABLES REPRESENTATION --------------------------------------------- #
+# ==================================================================================================================== #
 class Variable:
     def __init__(self, name, values):
         self.name = name
-        self.values = values 
+        self.values = values
         self.cpt = None
 
     def __str__(self):
         comma = ", "
         return f"variable {self.name} {{" + "\n" \
-             + f"  type discrete [ {len(self.values)} ] {{ {(comma.join(self.values))} }};" + "\n" \
-             + f"}}" + "\n"
-    
-# =============================== #
-#          NETWORK MODEL          #
-# =============================== #
+            + f"  type discrete [ {len(self.values)} ] {{ {(comma.join(self.values))} }};" + "\n" \
+            + f"}}" + "\n"
+
+
+# ==================================================================================================================== #
+# ---------------------------------------------- BAYESIAN NETWORK CLASS ---------------------------------------------- #
+# ==================================================================================================================== #
 class BayesianNetwork:
     def __init__(self, input_file):
         with open(input_file) as f:
@@ -58,7 +60,7 @@ class BayesianNetwork:
                 variable_name = lines[i].rstrip().split(' ')[1]
                 i += 1
                 variable_def = lines[i].rstrip().split(' ')
-                assert(variable_def[1] == 'discrete')
+                assert (variable_def[1] == 'discrete')
                 variable_values = [x for x in variable_def[6:-1]]
                 for j in range(len(variable_values)):
                     variable_values[j] = re.sub(r'\(|\)|,', '', variable_values[j])
@@ -71,7 +73,7 @@ class BayesianNetwork:
                 target_variable_name = split[2]
                 variable = self.variables[target_variable_name]
                 parents = [self.variables[x.rstrip().lstrip().replace(',', '')] for x in split[4:-2]]
-                assert(variable.name == split[2])
+                assert (variable.name == split[2])
                 cpt = CPT(variable, parents)
                 i += 1
                 if len(parents) > 0:
@@ -82,29 +84,29 @@ class BayesianNetwork:
                         cpt_line = [x for x in re.sub(r'\(|\)|,', '', lines[i][:-1]).split()]
                         parent_values = tuple([x for x in cpt_line[:len(parents)]])
                         probabilities = [float(p) for p in cpt_line[len(parents):]]
-                        cpt.entries[parent_values] = { v:p for v,p in zip(variable.values,probabilities) }
+                        cpt.entries[parent_values] = {v: p for v, p in zip(variable.values, probabilities)}
                         i += 1
                 else:
                     cpt_line = [x for x in re.sub(r'\(|\)|,', '', lines[i][:-1]).split()]
                     probabilities = [float(p) for p in cpt_line[1:]]
-                    cpt.entries[tuple()] = { v:p for v,p in zip(variable.values,probabilities) }
+                    cpt.entries[tuple()] = {v: p for v, p in zip(variable.values, probabilities)}
                 variable.cpt = cpt
             i += 1
 
-    def write(self,filename):
-        with open(filename,"w") as file:
-            for var in self.variables.values ():
+    def write(self, filename):
+        with open(filename, "w") as file:
+            for var in self.variables.values():
                 file.write(str(var))
-            for var in self.variables.values ():
+            for var in self.variables.values():
                 file.write(str(var.cpt))
 
-    def P_Yisy_given_parents_x(self,Y,y,x=tuple()):
+    def P_Yisy_given_parents_x(self, Y, y, x=tuple()):
         return self.variables[Y].cpt.entries[x][y]
 
-    def P_Yisy_given_parents(self,Y,y,pa={}):
-        x = tuple([ pa[parent.name] for parent in self.variables[Y].cpt.parents ])
-        return self.P_Yisy_given_parents_x(Y,y,x)
-    
+    def P_Yisy_given_parents(self, Y, y, pa={}):
+        x = tuple([pa[parent.name] for parent in self.variables[Y].cpt.parents])
+        return self.P_Yisy_given_parents_x(Y, y, x)
+
     def _get_children(self):
         """
         Builds a mapping from each variable to its children in the Bayesian Network.
@@ -150,7 +152,7 @@ class BayesianNetwork:
             return 1.0 if evidence[pname] == pval else 0.0
         else:
             return 1.0 / len(self.variables[pname].values)
-        
+
     def _get_vals(self, pname, xi=None, focus_node=None, evidence=None):
         """
         Returns possible values for a parent variable during message passing.
@@ -172,7 +174,6 @@ class BayesianNetwork:
             return [evidence[pname]]
         else:
             return self.variables[pname].values
-
 
     def _send_messages_to_root(self, node, evidence, children, lambda_msgs):
         """
@@ -204,7 +205,8 @@ class BayesianNetwork:
                 msg = 0.0
                 for xj in child_var.values:
                     # Collect possible values for each parent, constrained by evidence and current xi
-                    all_pa_vals = itertools.product(*[self._get_vals(pname, xi, node, evidence) for pname in parent_names])
+                    all_pa_vals = itertools.product(
+                        *[self._get_vals(pname, xi, node, evidence) for pname in parent_names])
                     for pa in all_pa_vals:
                         pa_dict = dict(zip(parent_names, pa))
                         pa_vals = tuple(pa_dict[p.name] for p in child_var.cpt.parents)
@@ -218,7 +220,6 @@ class BayesianNetwork:
             lambda_msg = {val: (1.0 if val == observed else 0.0) for val in var.values}
         lambda_msgs[node] = lambda_msg
         return lambda_msg
-    
 
     def _send_messages_from_root(self, node, pi_msg, evidence, children, lambda_msgs, beliefs, pi_msgs):
         """
@@ -253,7 +254,8 @@ class BayesianNetwork:
             for xj in child_var.values:
                 total = 0.0
                 # Determine all parent value combinations, constrained by evidence
-                all_pa_vals = itertools.product(*[self._get_vals(pname, None, None, evidence) for pname in parent_names])
+                all_pa_vals = itertools.product(
+                    *[self._get_vals(pname, None, None, evidence) for pname in parent_names])
                 for pa in all_pa_vals:
                     pa_dict = dict(zip(parent_names, pa))
                     pa_vals = tuple(pa_dict[p.name] for p in child_var.cpt.parents)
@@ -301,7 +303,7 @@ class BayesianNetwork:
                 root_pi = self.variables[query_var].cpt.entries[tuple()]
             self._send_messages_from_root(query_var, root_pi, evidence, children, lambda_msgs, beliefs, pi_msgs)
         return beliefs[query_var]
-    
+
     def query_joint(self, var1, var2, evidence):
         """
         Computes the joint probability distribution of two variables given partial evidence.
@@ -347,17 +349,68 @@ class BayesianNetwork:
         Returns:
             dict: Normalized joint distribution. If total is 0, returns the original.
         """
+        # Flatten all probabilities to compute total
         total = sum(v for d in joint_dist.values() for v in d.values())
         if total == 0:
             return joint_dist
+        # Normalize each inner value manually by dividing by the total
         for k1 in joint_dist:
-            for k2 in joint_dist[k1]:
-                joint_dist[k1][k2] /= total
+            joint_dist[k1] = self._normalize({k2: v / total for k2, v in joint_dist[k1].items()})
         return joint_dist
 
-# =============================== #
-#        MODEL EVALUATION         #
-# =============================== #
+    def learn_parameters(self, df, laplace_smoothing=True):
+        """
+        Learns the parameters (CPTs) of the Bayesian network from a DataFrame.
+
+        Args:
+            df (pd.DataFrame): The dataset with complete variable assignments (no missing values).
+            laplace_smoothing (bool): Whether to apply Laplace smoothing (default: True).
+
+        Returns:
+            None: Updates CPTs of each variable in-place.
+        """
+        alpha = 1 if laplace_smoothing else 0
+        for var in self.variables.values():
+            # in case of missing CPT
+            if var.cpt is None:
+                var.cpt = CPT(var, [])
+        for var_name, var in self.variables.items():
+            if var.cpt is None:
+                continue
+            parents = var.cpt.parents
+            cpt = {}
+            parent_names = [p.name for p in parents]
+            parent_value_combinations = list(itertools.product(*[self.variables[p].values for p in parent_names]))
+            for parent_vals in parent_value_combinations:
+                parent_vals = tuple(parent_vals)
+                counts = {v: 0 for v in var.values}
+                total = 0
+                # Select rows where parent values match
+                condition = (df[parent_names] == list(parent_vals)).all(axis=1)
+                matching_rows = df[condition]
+                for y_val in matching_rows[var_name]:
+                    if y_val in counts:
+                        counts[y_val] += 1
+                        total += 1
+                smoothed_total = total + alpha * len(var.values)
+                probs = {v: (counts[v] + alpha) / smoothed_total for v in var.values}
+                cpt[parent_vals] = probs
+            if not parents:
+                counts = {v: 0 for v in var.values}
+                total = 0
+                for y_val in df[var_name]:
+                    if y_val in counts:
+                        counts[y_val] += 1
+                        total += 1
+                smoothed_total = total + alpha * len(var.values)
+                probs = {v: (counts[v] + alpha) / smoothed_total for v in var.values}
+                cpt[tuple()] = probs
+            var.cpt.entries = cpt
+
+
+# ==================================================================================================================== #
+# ------------------------------------------------- PROJECT PIPELINE ------------------------------------------------- #
+# ==================================================================================================================== #
 def _clean_missing_dataframe(df):
     """
     Cleans a dataframe containing missing values and numeric strings.
@@ -374,7 +427,6 @@ def _clean_missing_dataframe(df):
     for col in df.columns:
         df[col] = df[col].apply(lambda x: str(int(float(x))) if pd.notna(x) else pd.NA)
     return df
-
 
 
 def _evaluate_network(bn, test_df, miss_df):
@@ -410,9 +462,9 @@ def _evaluate_network(bn, test_df, miss_df):
     accuracy = correct / total if total > 0 else 0.0
     avg_confidence = sum(confidences) / len(confidences) if confidences else 0.0
     return accuracy, avg_confidence
-    
 
-def main(train_dataset_file, test_dataset_file, missing_value_file, bayesian_network_file):
+
+def main(train_dataset_file, test_dataset_file, missing_value_file, bayesian_network_file, verbose=False):
     """
     Executes the full pipeline: loading data, training a Bayesian network, and evaluating it.
 
@@ -425,21 +477,37 @@ def main(train_dataset_file, test_dataset_file, missing_value_file, bayesian_net
     Returns:
         None
     """
-    # ── Load ──────────────────────────────
+    # ── Load ──────────────────────────────────
+    if verbose:
+        print("Loading files...")
     train_df = pd.read_csv(train_dataset_file)
     test_df = pd.read_csv(test_dataset_file)
     miss_df = _clean_missing_dataframe(pd.read_csv(missing_value_file))
-    # ── Train ─────────────────────────────
-    bn = BayesianNetwork()
-    # TODO: add task3 here 
-    # ── Test ──────────────────────────────
+    # ── Create Network ────────────────────────
+    if verbose:
+        print("Creating Bayesian network...")
+    # TODO: replace by step3 -> bn = BayesianNetwork()
     bn = BayesianNetwork(bayesian_network_file)
+    # ── Train ─────────────────────────────────
+    if verbose:
+        print("Training Bayesian network...")
+    bn.learn_parameters(train_df)
+    # TODO: replace by simply the path since we create the network with step 3 -> bn.write(bayesian_network_file)
+    bn.write(bayesian_network_file.replace("_missing_probabilities.bif", "_learned.bif"))
+    if verbose:
+        print("Bayesian network saved to {}".format(bayesian_network_file))
+    # ── Test ──────────────────────────────────
+    if verbose:
+        print("Evaluating Bayesian network...")
     acc, _ = _evaluate_network(bn, test_df, miss_df)
-    print(f"Accuracy: {acc:.4f}")
-    
+    if verbose:
+        print(f"Accuracy: {acc:.4f}")
+
+
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python src/inginious.py <train_dataset_file> <test_dataset_file> <missing_value_file> <bayesian_network_file>")
+        print(
+            "Usage: python inginious.py <train_dataset_file> <test_dataset_file> <missing_value_file> "
+            "<bayesian_network_file>")
         exit(1)
-
-    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], verbose=True)
