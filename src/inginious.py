@@ -479,7 +479,7 @@ def main(train_dataset_file, test_dataset_file, missing_value_file, bayesian_net
     """
     # ── Load ──────────────────────────────────
     if verbose:
-        print("Loading files...")
+        print("\nLoading files...")
     train_df = pd.read_csv(train_dataset_file)
     test_df = pd.read_csv(test_dataset_file)
     miss_df = _clean_missing_dataframe(pd.read_csv(missing_value_file))
@@ -501,7 +501,7 @@ def main(train_dataset_file, test_dataset_file, missing_value_file, bayesian_net
         print("Evaluating Bayesian network...")
     acc, _ = _evaluate_network(bn, test_df, miss_df)
     if verbose:
-        print(f"Accuracy: {acc:.4f}")
+        print(f"Accuracy: {acc:.4f}\n")
 
 
 if __name__ == "__main__":
