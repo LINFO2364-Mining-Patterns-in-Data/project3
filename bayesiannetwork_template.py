@@ -133,26 +133,34 @@ class BayesianNetwork:
         x = tuple([ pa[parent.name] for parent in self.variables[Y].cpt.parents ])
         return self.P_Yisy_given_parents_x(Y,y,x)
 
+def main():
+    # Example for how to read a BayesianNetwork
+    bn = BayesianNetwork("datasets/alarm/alarm_complete.bif")
 
-# Example for how to read a BayesianNetwork
-bn = BayesianNetwork("datasets/alarm/alarm_complete.bif")
+    # Example for how to write a BayesianNetwork
+    bn.write("alarm2.bif")
 
-# Example for how to write a BayesianNetwork
-bn.write("alarm2.bif")
+    # Examples for how to get an entry from the CPT
 
-# Examples for how to get an entry from the CPT
+    # return P(HISTORY=1|LVFAILURE=0)
+    print(bn.P_Yisy_given_parents_x("HISTORY","1",("0",)))
 
-# return P(HISTORY=1|LVFAILURE=1)
-print(bn.P_Yisy_given_parents_x("HISTORY","1",("1",)))
-# or
-print(bn.P_Yisy_given_parents("HISTORY","1",{"LVFAILURE":"1"}))
+    # return P(HISTORY=1|LVFAILURE=1)
+    print(bn.P_Yisy_given_parents_x("HISTORY","1",("1",)))
+    # or
+    print(bn.P_Yisy_given_parents("HISTORY","1",{"LVFAILURE":"1"}))
 
-# return P(HRBP=1|ERRLOWOUTPUT=1,HR=LOW)
-print(bn.P_Yisy_given_parents_x("HRBP","1",("1","0")))
-# or
-print(bn.P_Yisy_given_parents("HRBP","1",{"ERRLOWOUTPUT":"1","HR":"0"}))
+    # return P(HRBP=1|ERRLOWOUTPUT=1,HR=LOW)
+    print(bn.P_Yisy_given_parents_x("HRBP","1",("1","0")))
+    # or
+    print(bn.P_Yisy_given_parents("HRBP","1",{"ERRLOWOUTPUT":"1","HR":"0"}))
 
-# return P(HYPOVOLEMIA=1)
-print(bn.P_Yisy_given_parents_x("HYPOVOLEMIA","1"))
-# or
-print(bn.P_Yisy_given_parents("HYPOVOLEMIA","1"))
+    # return P(HYPOVOLEMIA=1)
+    print(bn.P_Yisy_given_parents_x("HYPOVOLEMIA","1"))
+    # or
+    print(bn.P_Yisy_given_parents("HYPOVOLEMIA","1"))
+
+
+
+if __name__ == "__main__":
+    main()
